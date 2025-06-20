@@ -1,0 +1,32 @@
+@model ICollection<WebApplication2.Models.Student>
+
+@{
+    var departmentNames = ViewBag.DepartmentNames as Dictionary<int, string>;
+}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Student Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Department</th>
+        <th scope="col">Grade</th>
+        <th scope="col" colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.StudentId</td>
+            <td>@i.Name</td>
+            <td>@(departmentNames?.GetValueOrDefault(i.DepartmentId ?? 0) ?? "Unknown")</td>
+            <td>@i.Grade</td>
+            <td><a asp-action="Edit" asp-controller="Student" asp-route-id="@i.StudentId" class="btn btn-outline-info">Edit</a></td>
+            <td><a asp-action="Details" asp-controller="Student" asp-route-id="@i.StudentId" class="btn btn-outline-secondary">Details</a></td>
+            <td><a asp-action="Delete" asp-controller="Student" asp-route-id="@i.StudentId" class="btn btn-outline-danger">Delete</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
+<a asp-action="New" asp-controller="Student" class="btn btn-primary">New</a>

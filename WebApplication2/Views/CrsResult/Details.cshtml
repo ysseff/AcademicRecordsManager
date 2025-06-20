@@ -1,0 +1,15 @@
+@model WebApplication2.Models.CrsResult
+
+@{
+var studentNames = ViewBag.StudentNames as Dictionary<int, string>;
+var courseNames = ViewBag.CourseNames as Dictionary<int, string>;
+}
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@(studentNames?.GetValueOrDefault(Model.StudentId ?? 0) ?? "Unknown")</h5>
+        <p class="card-text">Course: @(courseNames?.GetValueOrDefault(Model.CourseId ?? 0) ?? "Unknown")<br/>Degree: @Model.Degree<br/></p>
+    </div>
+</div>
+<br/>
+<a asp-action="GetAll" asp-controller="CrsResult" class="btn btn-primary">Back</a>

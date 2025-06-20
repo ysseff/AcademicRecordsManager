@@ -1,0 +1,11 @@
+@model WebApplication2.Models.Instructor
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="~/img.png" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">id: @Model.InstructorId <br/>Salary: @Model.Salary</p>
+    </div>
+</div>
+<br/>
+<a asp-action="GetAll" asp-controller="Instructor" class="btn btn-primary">Back</a>
