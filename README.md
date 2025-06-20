@@ -22,7 +22,7 @@ A full-stack **ASP.NET MVC** web application designed to manage academic entitie
 | Backend     | ASP.NET Core MVC   |
 | ORM         | Entity Framework   |
 | Database    | SQL Server         |
-| Frontend    | Bootstrap          |
+| Frontend    | Bootstrap Template |
 
 ---
 
